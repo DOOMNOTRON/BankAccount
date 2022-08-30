@@ -41,6 +41,10 @@ namespace BankAccount
         
         public double Deposit(double amount)
         {
+            if(amount <= 0)
+            {
+                throw new ArgumentOutOfRangeException($"The {nameof(amount)} must be gretaer than 0");
+            }
             Balance += amount;
             return Balance;
         }
@@ -49,10 +53,12 @@ namespace BankAccount
         /// Subtract a specified amount of money from the account.
         /// </summary>
         /// <param name="amount">The positive amount of money to be taken from the balance.</param>
+        /// <returns> Returns updated balance after withdrawal </returns>
 
-        public void Withdraw(double amount)
+        public double Withdraw(double amount)
         {
-            throw new NotImplementedException();
+            Balance -= amount;
+            return Balance;
         }
     }
 }
