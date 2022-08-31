@@ -164,7 +164,5 @@ namespace BankAccount.Tests
         {
             Assert.ThrowsException<ArgumentException>(() => acc.Owner = ownerName);
         }
-        
-
     }
 }
